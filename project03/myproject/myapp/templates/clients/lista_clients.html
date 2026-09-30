@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOme</title>
+
+    <style>
+           body{
+               background-color: #b8b6b6;
+           }
+           div{
+               width: 800px;
+               margin: 100px auto;
+               background-color: #c5c2c2;
+               padding: 50px;
+               text-align: center;
+               border-radius: 10px;
+           }
+
+
+           div button{
+            background-color: #2d44db;
+            height: 45px;
+            padding: 8px;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+           }
+
+           table {
+             margin: 30px;
+           }
+
+          table tr td, table th{
+             padding: 10px;
+           }
+    </style>
+</head>
+<body>
+
+
+      <div>
+          
+
+           <h2>Lista de clientes</h2>
+           
+           {% if clients %}
+
+           <table border="1">
+              <thead>
+                 <th>ID</th>
+                 <th>Nome</th>
+                 <th>E-mail</th>
+                 <th>Data de Cadastro</th>
+                 <th>Data de Atualizacao</th>
+                 <th>Acoes</th>
+              </thead>
+
+               <tbody>
+                
+
+                {% for client in clients  %}
+                  <tr>
+                    <td>{{ client.id }}</td>
+                    <td>{{ client.name_client }}</td>
+                    <td>{{ client.email }}</td>
+                    <td>{{ client.created_at }}</td>
+                    <td>{{ client.updated_at }}</td>
+
+                    <td><a href="{% url 'editar' client.id %}">Editar</a></td>
+
+                    <td><a href="{% url 'delete' client.id %}">Eliminar</a></td>
+                </tr>
+                {% endfor %}
+               </tbody>
+           </table>
+
+           {% else %}
+              
+                  <p>Não tem clients registados no momento!</p>
+
+           {% endif %}
+
+             <a style="text-decoration: none ; background-color: blue; padding: 10px; color: white;" href="{% url 'cadastrar' %}">Cadastar Cliente</a>
+             <a href="{% url 'home' %}">Home</a>
+      </div>
+    
+</body>
+</html>

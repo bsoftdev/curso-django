@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOme</title>
+
+    <style>
+           body{
+               background-color: #b8b6b6;
+           }
+           div{
+               width: 500px;
+               margin: 100px auto;
+               background-color: #c5c2c2;
+               padding: 50px;
+               text-align: center;
+               border-radius: 10px;
+           }
+
+
+           div a{
+            background-color: #2d44db;
+            height: 45px;
+            padding: 10px;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+           }
+    </style>
+</head>
+<body>
+
+
+      <div>
+           <h2>Seja Bem-vindo</h2>
+           <p>Melhor Sistema do Mundo</p>
+            <a href=" {% url 'clientes' %}">Ver Produtos</a>
+      </div>
+    
+</body>
+</html>

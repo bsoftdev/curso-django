@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar</title>
+    
+    <style>
+           body{
+               background-color: #b8b6b6;
+           }
+           div.container{
+               width: 500px;
+               margin: 100px auto;
+               background-color: #c5c2c2;
+               padding: 50px;
+               text-align: center;
+               border-radius: 10px;
+           }
+
+
+           div button{
+            background-color: #2d44db;
+            height: 45px;
+            padding: 8px;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+           }
+           form input {
+             margin: 10px;
+             height: 30px;
+             padding: 4px;
+           }
+    </style>
+</head>
+<body>
+
+   <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+
+              <div>
+                  <label for="">Nome</label>
+                  <input type="text" name="name" id="name" placeholder="Nome do cliente">
+              </div>
+
+              <div>
+                  <label for="">E-mail</label>
+                  <input type="email" name="email" id="email" placeholder="E-mail do cliente">
+              </div>
+
+              <button>Cadastrar</button>
+               <a href="{% url 'clientes' %}">Cadastrar Cliente</a>
+        </form>
+   </div>
+    
+</body>
+</html>
