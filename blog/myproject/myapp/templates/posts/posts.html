@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+           .container{
+                 display: flex;
+                 flex-wrap: wrap;
+                 justify-content: center;
+           }
+           
+           .container div.row{
+             width: 200px;
+             height: 200px;
+             border: 1px solid red;
+             margin: 10px;
+             padding: 8px;
+           }
+           .principal{
+               width: 1200px;
+               background-color: #e5e2e2;
+               margin: -20px auto auto auto;
+               text-align: center;
+               padding: 20px;
+           }
+           
+
+
+    </style>
+</head>
+<body>
+    
+
+    <div class="principal">
+
+    <h1>POSTS</h1>
+
+
+     {% for  post in  posts %}
+      <div class="container">
+          <div class="row">
+               <h3>{{post.titulo }}</h3>
+             <div class="body">
+                  <p>{{ post.conteudo|slice:":100" }}...</p>
+             </div>
+
+              <a href="{% url 'single_post' post.id %}">Ler mais</a>
+             
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+
+
+    
+</body>
+</html>
